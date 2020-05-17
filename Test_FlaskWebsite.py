@@ -37,3 +37,6 @@ class TestFlaskWebsite:
         assert driver.find_element_by_tag_name("h3").text=="用户名或密码错误！"
 
         driver.quit()
+
+if __name__ =="__main__":
+    pytest.main(["Test_FlaskWebsite.py"])
