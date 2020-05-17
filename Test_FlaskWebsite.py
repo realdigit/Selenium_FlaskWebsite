@@ -1,9 +1,5 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-
-#customOptions = Options()
-#customOptions.binary_location = r"C:\Users\reald\AppData\Local\Google\Chrome\Application\chrome.exe"
 
 class TestFlaskWebsite:
     # 用正确的用户名和密码，测试登陆是否通过
@@ -41,6 +37,3 @@ class TestFlaskWebsite:
         assert driver.find_element_by_tag_name("h3").text=="用户名或密码错误！"
 
         driver.quit()
-
-if __name__ =="__main__":
-    pytest.main(["Test_FlaskWebsite.py"])
