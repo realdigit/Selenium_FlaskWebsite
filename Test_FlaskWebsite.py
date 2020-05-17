@@ -2,15 +2,15 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-customOptions = Options()
-customOptions.binary_location = r"C:\Users\reald\AppData\Local\Google\Chrome\Application\chrome.exe"
+#customOptions = Options()
+#customOptions.binary_location = r"C:\Users\reald\AppData\Local\Google\Chrome\Application\chrome.exe"
 
 class TestFlaskWebsite:
     # 用正确的用户名和密码，测试登陆是否通过
     @pytest.mark.parametrize('homeUrl,username,password',
         [("http://localhost:5001", "username1", "password1")])
     def test_site_login_success(self, homeUrl, username, password):
-        driver = webdriver.Chrome(r"D:\PythonProject\AllBrowserDrivers\chromedriver.exe", options=customOptions)
+        driver = webdriver.Chrome()
 
         driver.get(homeUrl)
         driver.find_element_by_link_text("登录").click()
@@ -29,7 +29,7 @@ class TestFlaskWebsite:
     @pytest.mark.parametrize('homeUrl,errorUsername,errorPassword',
         [("http://localhost:5001", "errorUser1", "errorPwd1")])
     def test_site_login_fail(self, homeUrl, errorUsername, errorPassword):
-        driver = webdriver.Chrome(r"D:\PythonProject\AllBrowserDrivers\chromedriver.exe",options=customOptions)
+        driver = webdriver.Chrome()
 
         driver.get(homeUrl)
         driver.find_element_by_link_text("登录").click()
