@@ -6,7 +6,7 @@ class TestFlaskWebsite:
     @pytest.mark.parametrize('homeUrl,username,password',
         [("http://localhost:5001", "username1", "password1")])
     def test_site_login_success(self, homeUrl, username, password):
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(executable_path=r"D:\PythonProject\AllBrowserDrivers\chromedriver.exe")
 
         driver.get(homeUrl)
         driver.find_element_by_link_text("登录").click()
